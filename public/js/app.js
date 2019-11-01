@@ -51171,12 +51171,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 function Index() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
-  }, "Test");
+  var ref_name = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
+  var ref_email = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
+  var ref_password = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
+  var ref_password_confirmation = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
+
+  var handleClick = function handleClick() {
+    var name = ref_name.current.value;
+    var email = ref_email.current.value;
+    var password = ref_password.current.value;
+    var password_confirmation = ref_password_confirmation.current.value;
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/auth/register', {
+      name: name,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation
+    }).then(function (res) {
+      console.log(res.data);
+    });
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    ref: ref_name
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    ref: ref_email
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    ref: ref_password
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    ref: ref_password_confirmation
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: handleClick
+  }, "OK"));
 }
 
 if (document.getElementById('index')) {
