@@ -9,6 +9,11 @@ class IndexController extends Controller
     public function init(){
         // auth('istifadeci')->attempt(['email'=>'nicat@mail.ru','password'=>'password']);
         // auth('istifadeci')->logout();
-        return auth('istifadeci')->user();
+        $guards = ['admins','','istifadeci'];
+        foreach($guards as $guard){
+            if(auth($guard)->check()){
+                return auth($guard)->user();
+            }
+        }
     }
 }

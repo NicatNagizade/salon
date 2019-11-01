@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth\Admin;
 
+use App\Admin;
 use App\Http\Controllers\Controller;
 use App\Istifadeci;
 use App\User;

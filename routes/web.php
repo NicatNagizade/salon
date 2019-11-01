@@ -1,20 +1,19 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('init','IndexController@init')->name('init');
-Route::prefix('auth')->namespace('Auth')->group(function(){
-    Route::post('register','Istifadeci\RegisterController@register');
+
+Route::prefix('admin')->namespace('Auth\Admin')->group(function(){
+    Route::post('register','RegisterController@register');
 });
-Route::get('{index?}', function () {
+
+Route::namespace('Auth')->group(function(){
+    Route::post('register','RegisterController@register');
+});
+
+Route::prefix('istifadeci')->namespace('Auth\Istifadeci')->group(function(){
+    Route::post('register','RegisterController@register');
+});
+
+Route::get('{index?}/{page?}/{id?}', function () {
     return view('index');
 });
