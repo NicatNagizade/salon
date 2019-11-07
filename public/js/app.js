@@ -51187,7 +51187,7 @@ function Index() {
     var email = ref_email.current.value;
     var password = ref_password.current.value;
     var password_confirmation = ref_password_confirmation.current.value;
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/admin/register', {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/admin/login', {
       name: name,
       email: email,
       password: password,

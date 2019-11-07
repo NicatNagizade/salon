@@ -20,7 +20,17 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->timestamps();
+
+            $table->string('ad',50)->nullable();
+            $table->string('soyad',60)->nullable();
+            $table->unsignedBigInteger('salon_id')->nullable();
+            $table->string('sekil',300)->nullable();
+            $table->unsignedTinyInteger('yas')->nullable();
+            $table->boolean('cins')->default(1);
+            $table->string('telefon',30)->nullable();
+            $table->string('qeyd',500)->nullable();
+            $table->time('baslama')->nullable();
+            $table->time('bitme')->nullable();
         });
     }
 

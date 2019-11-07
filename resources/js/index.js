@@ -12,7 +12,7 @@ export default function Index () {
         const email = ref_email.current.value
         const password = ref_password.current.value
         const password_confirmation = ref_password_confirmation.current.value
-        Axios.post('/admin/register',{name,email,password,password_confirmation})
+        Axios.post('/admin/login',{name,email,password,password_confirmation})
         .then(res=>{
             console.log(res.data)
         })

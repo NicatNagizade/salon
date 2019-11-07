@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Auth\Admin;
 
 use App\Admin;
 use App\Http\Controllers\Controller;
-use App\Istifadeci;
-use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -41,6 +39,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest:admins');
+        $this->middleware('guest');
+        $this->middleware('guest:istifadeci');
     }
 
     /**

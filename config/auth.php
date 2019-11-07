@@ -54,6 +54,10 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+        'salon' => [
+            'driver' => 'session',
+            'provider' => 'salon',
+        ],
     ],
 
     /*
@@ -85,6 +89,10 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
+        ],
+        'salon' => [
+            'driver' => 'eloquent',
+            'model' => App\Salon::class,
         ],
 
         // 'users' => [
@@ -123,6 +131,12 @@ return [
         ],
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'salon' => [
+            'provider' => 'salon',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

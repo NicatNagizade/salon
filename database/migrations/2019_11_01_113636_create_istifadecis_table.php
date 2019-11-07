@@ -13,14 +13,19 @@ class CreateIstifadecisTable extends Migration
      */
     public function up()
     {
-        Schema::create('istifadeci', function (Blueprint $table) {
+        Schema::create('istifadecis', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->timestamps();
+
+            $table->string('ad',50)->nullable();
+            $table->string('soyad',60)->nullable();
+            $table->string('telefon',30)->nullable();
+            $table->boolean('cins')->default(1);
+            $table->unsignedBigInteger('user_id')->nullable();
         });
     }
 
