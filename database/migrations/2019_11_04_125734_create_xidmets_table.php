@@ -15,7 +15,8 @@ class CreateXidmetsTable extends Migration
     {
         Schema::create('xidmets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('xidmet',20);
+            $table->enum('xidmet',['sac','uz']);
+            $table->string('nov')->nullable();
             $table->string('qeyd',500)->nullable();
         });
     }

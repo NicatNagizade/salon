@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Table extends Model
+class Muzakire extends Model
 {
+    protected $guarded = [];
     public $timestamps = false;
-    protected $guarded =[];
 }

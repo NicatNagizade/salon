@@ -17,7 +17,7 @@ class CreateKataloqsTable extends Migration
             $table->bigIncrements('id');
             $table->string('ad',50);
             $table->string('sekil',300)->nullable();
-            $table->unsignedBigInteger('xidmet_novu_id')->default(1);
+            $table->unsignedBigInteger('xidmet_id')->default(1);
             $table->boolean('cins')->default(1);
             $table->string('qeyd',500)->nullable();
         });

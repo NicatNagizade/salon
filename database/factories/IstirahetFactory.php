@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\XidmetNovu;
+use App\Models\Istirahet;
 use Faker\Generator as Faker;
 
-$factory->define(XidmetNovu::class, function (Faker $faker) {
+$factory->define(Istirahet::class, function (Faker $faker) {
     return [
         //
     ];

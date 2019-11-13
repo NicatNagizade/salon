@@ -26,11 +26,13 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('salon_id')->nullable();
             $table->string('sekil',300)->nullable();
             $table->unsignedTinyInteger('yas')->nullable();
+            $table->boolean('cinsi')->default(1);
             $table->boolean('cins')->default(1);
             $table->string('telefon',30)->nullable();
             $table->string('qeyd',500)->nullable();
             $table->time('baslama')->nullable();
             $table->time('bitme')->nullable();
+            $table->unsignedTinyInteger('istirahet_gunu')->nullable();
         });
     }
 

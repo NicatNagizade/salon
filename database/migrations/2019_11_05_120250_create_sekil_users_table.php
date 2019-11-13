@@ -15,9 +15,12 @@ class CreateSekilUsersTable extends Migration
     {
         Schema::create('sekil_users', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
+            $table->unsignedSmallInteger('d_id')->default(0);
             $table->string('sekil',300);
             $table->string('basliq',50)->nullable();
             $table->string('qeyd',500);
+
+            $table->unique(['user_id','d_id']);
         });
     }
 
