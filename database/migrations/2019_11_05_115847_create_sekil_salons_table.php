@@ -18,7 +18,7 @@ class CreateSekilSalonsTable extends Migration
             $table->unsignedSmallInteger('d_id')->default(0);
             $table->string('sekil',300);
             $table->string('basliq',50)->nullable();
-            $table->string('qeyd',500);
+            $table->string('qeyd',500)->nullable();
 
             $table->unique(['salon_id','d_id']);
         });

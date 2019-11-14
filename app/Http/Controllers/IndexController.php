@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
@@ -16,11 +15,11 @@ class IndexController extends Controller
         return '';
     }
     public function test(){
-
+        
     }
-    public function redirect(string $page = 'home')
+    public function error()
     {
-        return response(['redirect'=>$page]);
+        return response(['error'=>'redirect']);
     }
     public function refresh(){
         DB::table('tables')->truncate();

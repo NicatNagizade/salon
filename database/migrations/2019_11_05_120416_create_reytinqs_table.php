@@ -17,7 +17,7 @@ class CreateReytinqsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('istifadeci_id');
             $table->unsignedTinyInteger('xal');
-            $table->string('qeyd',500);
+            $table->string('qeyd',500)->nullable();
 
             $table->unique(['user_id','istifadeci_id']);
         });
