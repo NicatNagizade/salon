@@ -12,7 +12,7 @@ function authRoute(){
 
 Route::get('init','IndexController@init')->name('init');
 Route::get('test','IndexController@test')->name('test');
-Route::get('error','IndexController@error');
+Route::get('errors/{redirect?}/{error?}','IndexController@errors')->name('errors');
 // Route::get('refresh','IndexController@refresh');
 
 Route::prefix('admin')->namespace('Auth\Admin')->group(function(){

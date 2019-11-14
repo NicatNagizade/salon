@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin;
 use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth:admins')->only('test');
+    }
+
     public function init(){
         foreach(parent::guards as $guard){
             if(auth($guard)->check()){
@@ -15,27 +21,27 @@ class IndexController extends Controller
         return '';
     }
     public function test(){
-        
+        return 'test';
     }
-    public function error()
+    public function errors($redirect = 'home',$error = 'error')
     {
-        return response(['error'=>'redirect']);
+        return response(['redirect'=>$redirect,'error'=>$error]);
     }
-    public function refresh(){
-        DB::table('tables')->truncate();
-        $tables = DB::table('migrations')->select('migration')->get();
-        foreach ($tables as $table) {
-            $datas[] = $table->migration;
-        }
-        $datas = array_map(function($par){
-            $par = explode('create_',$par);
-            $par = explode('_table',$par[1]);
-            return $par[0];
-        },$datas);
-        foreach ($datas as $data) {
-            if(!in_array($data,['tables','migrations','failed_jobs']))
-            DB::table('tables')->insert(['ad'=>$data]);
-        }
-        return 'SUCCESS';
-    }
+    // public function refresh(){
+    //     DB::table('tables')->truncate();
+    //     $tables = DB::table('migrations')->select('migration')->get();
+    //     foreach ($tables as $table) {
+    //         $datas[] = $table->migration;
+    //     }
+    //     $datas = array_map(function($par){
+    //         $par = explode('create_',$par);
+    //         $par = explode('_table',$par[1]);
+    //         return $par[0];
+    //     },$datas);
+    //     foreach ($datas as $data) {
+    //         if(!in_array($data,['tables','migrations','failed_jobs']))
+    //         DB::table('tables')->insert(['ad'=>$data]);
+    //     }
+    //     return 'SUCCESS';
+    // }
 }
