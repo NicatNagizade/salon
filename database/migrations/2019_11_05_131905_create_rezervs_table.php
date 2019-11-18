@@ -14,16 +14,13 @@ class CreateRezervsTable extends Migration
     public function up()
     {
         Schema::create('rezervs', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedSmallInteger('d_id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('qiymet_id')->default(0);
             $table->unsignedBigInteger('istifadeci_id')->default(0);
-            $table->unsignedBigInteger('kataloq_id')->default(0);
             $table->time('baslama');
             $table->time('bitme');
             $table->date('tarix');
             $table->string('qeyd',500)->nullable();
-
-            $table->unique(['user_id','d_id']);
         });
     }
 

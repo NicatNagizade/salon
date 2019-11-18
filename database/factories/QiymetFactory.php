@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Qiymet::class, function (Faker $faker) {
     return [
-        'user_id' => $faker->unique()->numberBetween(1,20),
-        'kataloq_id' => $faker->numberBetween(1,15),
+        'user_id' => $faker->numberBetween(1,20),
+        'kataloq_id' => $faker->numberBetween(1,20),
         'qiymet' => $faker->numberBetween(5,50)
     ];
 });
