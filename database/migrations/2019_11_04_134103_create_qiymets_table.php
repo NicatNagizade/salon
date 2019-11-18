@@ -14,12 +14,12 @@ class CreateQiymetsTable extends Migration
     public function up()
     {
         Schema::create('qiymets', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->unsignedBigInteger('kataloq_id');
             $table->unsignedDecimal('qiymet');
             $table->unsignedBigInteger('valyuta_id')->default(1);
             $table->string('qeyd')->nullable();
-            $table->unique(['user_id','kataloq_id']);
         });
     }
 

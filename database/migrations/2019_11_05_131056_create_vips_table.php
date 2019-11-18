@@ -14,11 +14,10 @@ class CreateVipsTable extends Migration
     public function up()
     {
         Schema::create('vips', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->enum('role',['user','salon','kataloq']);
             $table->bigInteger('role_id');
             $table->unsignedTinyInteger('sira')->default(1);
-
-            $table->unique(['role','role_id']);
         });
     }
 

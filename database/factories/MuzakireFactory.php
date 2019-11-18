@@ -12,6 +12,6 @@ $factory->define(Muzakire::class, function (Faker $faker) {
         'role_id' => $faker->unique()->numberBetween(1,20),
         'rey' => $faker->text,
         'tarix' => $faker->dateTime(),
-        'like' => $faker->boolean(),
+        'blog_like' => $faker->boolean(),
     ];
 });

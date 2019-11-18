@@ -14,14 +14,13 @@ class CreateMuzakiresTable extends Migration
     public function up()
     {
         Schema::create('muzakires', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('blog_id');
             $table->enum('role',['user','istifadeci']);
             $table->unsignedBigInteger('role_id');
             $table->string('rey',500)->nullable();
             $table->dateTime('tarix')->nullable();
-            $table->boolean('like')->default(0);
-
-            $table->unique(['blog_id','role','role_id']);
+            $table->boolean('blog_like')->default(0);
         });
     }
 

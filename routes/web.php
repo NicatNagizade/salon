@@ -27,6 +27,7 @@ Route::prefix('istifadeci')->namespace('Auth\Istifadeci')->group(function(){
     authRoute();
 });
 
+// Route::view('{index?}','index');
 Route::fallback(function () {
     return view('index');
 });
