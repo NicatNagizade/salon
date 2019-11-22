@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
@@ -26,6 +27,14 @@ class IndexController extends Controller
     public function errors($redirect = 'home',$error = 'error')
     {
         return response(['redirect'=>$redirect,'error'=>$error]);
+    }
+    public function search(){
+        $soz = request('soz');
+        if(!$soz){
+            return response([]);
+        }
+        $data = User::select('name')->where('name','like',"%$soz%")->get()->pluck('name');
+        return response($data);
     }
     // public function refresh(){
     //     DB::table('tables')->truncate();

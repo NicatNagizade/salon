@@ -18,7 +18,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('errors');
+            return redirect('errors/home/giris_etmisiniz');
         }
 
         return $next($request);
