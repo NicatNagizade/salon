@@ -3,7 +3,7 @@ import { Select } from 'antd'
 import Axios from 'axios';
 const { Option } = Select
 
-export default function MySearch() {
+export default function MySearch({...props}) {
     const [timeout, settime] = useState(0)
     const [loading,setloading] = useState(false)
     const [data, setdata] = useState([])
@@ -43,6 +43,7 @@ export default function MySearch() {
             loading={loading}
             defaultActiveFirstOption={false}
             notFoundContent={null}
+            {...props}
             >
             {option}
         </Select>

@@ -1,21 +1,16 @@
 import React from 'react'
-import {BrowserRouter as Router, Switch,Route} from 'react-router-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
 import ReactDOM from 'react-dom'
-import {Home, Login, Register, Header, NotFound,Test} from './views'
+import {Header} from './views'
 import IndexProvider from './contexts';
+import IndexRoutes from './routes';
 
 export default function Index () {
     return (
         <Router>
             <IndexProvider>
                 <Header />
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/register" component={Register} />
-                    <Route exact path="/test" component={Test} />
-                    <Route path="" component={NotFound} />
-                </Switch>
+                <IndexRoutes />
             </IndexProvider>
         </Router>
     );

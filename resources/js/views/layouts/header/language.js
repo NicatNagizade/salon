@@ -7,7 +7,6 @@ export default function HeaderLang() {
     const {setlang} = context()
     const handleChange=e=>{
         setlang(e)
-        console.log(e)
     }
     return (
         <Select defaultValue="az" style={{ width: 60 }} showArrow={false} onChange={handleChange}>

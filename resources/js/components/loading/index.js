@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { Progress } from 'antd'
 
-export default function Loading({start = 0}){
+export default function Loading({start = 0, ...props}){
     const [percent,setpercent] = useState(start)
-    const interval = setTimeout(() => {
-        setpercent(percent+19)
-    }, 1000)
-    if(parseInt(percent)>80){
-        clearTimeout(interval)
-    }
     useEffect(()=>{
-        return()=>{
-            clearTimeout(interval)
-        }
-    })
+        const timer = setTimeout(() => {
+            setpercent(percent+19)
+        }, 1000);
+        if(percent>80) clearTimeout(timer)
+        return()=> clearTimeout(timer)
+    },[percent])
     return(
-        <Progress percent={parseInt(percent)} size="small" status="active" />
+        <Progress {...props} percent={parseInt(percent)} size="small" status="active" />
     )
 }

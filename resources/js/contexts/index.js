@@ -1,6 +1,7 @@
 import React, {createContext,useContext, useState, useEffect} from 'react'
 import Axios from 'axios'
 import Loading from '../components/loading'
+import { authfetch, langfetch } from './fetch_data'
 
 const MyContext = createContext()
 const Provider = MyContext.Provider
@@ -9,37 +10,33 @@ const context = ()=>{
 }
 export {context}
 
-export default function IndexProvider(props){
-    const [t,sett] = useState('')
+export default function IndexProvider({children}){
+    const [t,sett] = useState({})
     const [lang,setlang] = useState('az')
-    const [loading,setloading] = useState(true)
     const [auth,setauth] = useState('')
+    const [loading,setloading] = useState(true)
     useEffect(()=>{
-        setloading(true)
-        Axios.get('/init')
+        authfetch()
         .then(res=>{
             setauth(res.data)
-        })
-        .finally(()=>{
-            setloading(false)
         })
     },[])
     useEffect(()=>{
         setloading(true)
-        Axios.get(`/data/lang/${lang}.json`)
+        langfetch(lang)
         .then(res=>{
             sett(res.data)
-        })
-        .finally(()=>{
             setloading(false)
         })
     },[lang])
     console.log(auth)
-    const data = {setlang,t,setauth}
+    const data = {setlang,t,setauth,auth}
     return(
-        <Provider value={data}>
-            {loading && <Loading />}
-            {props.children}
-        </Provider>
+        <div>
+            {loading && <Loading start={22} />}
+            <Provider value={data}>
+                {children}
+            </Provider>
+        </div>
     )
 }
