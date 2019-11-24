@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Istifadeci;
+namespace App\Http\Controllers\Auth\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -35,17 +35,19 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:istifadeci')->except('logout');
-        $this->middleware('guest:admins')->except('logout');
+        $this->middleware('guest:client')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
         $this->middleware('guest')->except('logout');
     }
     protected function guard()
     {
-        return Auth::guard('istifadeci');
+        return Auth::guard('client');
     }
     public function logout()
     {
         $this->guard()->logout();
+        auth()->logout();
+        auth('admin')->logout();
 
         return '';
     }

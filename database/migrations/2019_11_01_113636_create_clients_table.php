@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIstifadecisTable extends Migration
+class CreateClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateIstifadecisTable extends Migration
      */
     public function up()
     {
-        Schema::create('istifadecis', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -36,6 +36,6 @@ class CreateIstifadecisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('istifadecis');
+        Schema::dropIfExists('clients');
     }
 }

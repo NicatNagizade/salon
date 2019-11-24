@@ -46,18 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
-        'istifadeci' => [
+        'client' => [
             'driver' => 'session',
-            'provider' => 'istifadeci',
+            'provider' => 'client',
         ],
-        'admins' => [
+        'admin' => [
             'driver' => 'session',
-            'provider' => 'admins',
-        ],
-        'salon' => [
-            'driver' => 'session',
-            'provider' => 'salon',
-        ],
+            'provider' => 'admin',
+        ]
     ],
 
     /*
@@ -82,23 +78,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-        'istifadeci' => [
+        'client' => [
             'driver' => 'eloquent',
-            'model' => App\Istifadeci::class,
+            'model' => App\Client::class,
         ],
-        'admins' => [
+        'admin' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
-        ],
-        'salon' => [
-            'driver' => 'eloquent',
-            'model' => App\Salon::class,
-        ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        ]
     ],
 
     /*
@@ -123,24 +110,18 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'istifadeci' => [
-            'provider' => 'istifadeci',
+        'client' => [
+            'provider' => 'client',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],
-        'admins' => [
-            'provider' => 'admins',
+        'admin' => [
+            'provider' => 'admin',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
-        ],
-        'salon' => [
-            'provider' => 'salon',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
-        ],
+        ]
     ],
 
     /*

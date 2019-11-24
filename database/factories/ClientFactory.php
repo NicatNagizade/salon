@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Istifadeci;
+use App\Client;
 use Faker\Generator as Faker;
 
-$factory->define(Istifadeci::class, function (Faker $faker) {
+$factory->define(Client::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,

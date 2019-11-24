@@ -15,11 +15,11 @@ class CreateReytinqsTable extends Migration
     {
         Schema::create('reytinqs', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('istifadeci_id');
+            $table->unsignedBigInteger('client_id');
             $table->unsignedTinyInteger('xal');
             $table->string('qeyd',500)->nullable();
 
-            $table->unique(['user_id','istifadeci_id']);
+            $table->unique(['user_id','client_id']);
         });
     }
 

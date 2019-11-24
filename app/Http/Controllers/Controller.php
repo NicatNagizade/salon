@@ -10,5 +10,5 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    protected const guards = ['admins','','istifadeci'];
+    protected const guards = ['client','','admin'];
 }

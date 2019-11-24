@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Istifadeci;
+namespace App\Http\Controllers\Auth\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
@@ -23,6 +23,6 @@ class ForgotPasswordController extends Controller
 
     
     public function broker(){
-        return Password::broker('istifadeci');
+        return Password::broker('client');
     }
 }

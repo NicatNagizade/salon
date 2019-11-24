@@ -8,7 +8,7 @@ export default function Logout(){
     const [loading,setloading] = useState(false)
     const handleClick=()=>{
         setloading(true)
-        Axios.post('/logout')
+        Axios.post('/client/logout')
         .then(()=>{
             setauth('')
         })

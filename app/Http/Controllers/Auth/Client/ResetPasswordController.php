@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Istifadeci;
+namespace App\Http\Controllers\Auth\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -31,11 +31,11 @@ class ResetPasswordController extends Controller
 
     public function broker()
     {
-        return Password::broker('istifadeci');
+        return Password::broker('client');
     }
 
     protected function guard()
     {
-        return Auth::guard('istifadeci');
+        return Auth::guard('client');
     }
 }

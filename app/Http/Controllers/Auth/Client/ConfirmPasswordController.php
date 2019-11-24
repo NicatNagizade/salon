@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Istifadeci;
+namespace App\Http\Controllers\Auth\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
@@ -34,7 +34,7 @@ class ConfirmPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:istifadeci');
+        $this->middleware('auth:client');
     }
     
 }

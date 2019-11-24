@@ -16,7 +16,7 @@ class CreateRezervsTable extends Migration
         Schema::create('rezervs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('qiymet_id')->default(0);
-            $table->unsignedBigInteger('istifadeci_id')->default(0);
+            $table->unsignedBigInteger('client_id')->default(0);
             $table->time('baslama');
             $table->time('bitme');
             $table->date('tarix');

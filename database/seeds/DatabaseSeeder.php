@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         factory(App\Admin::class,20)->create();
         factory(App\Models\Blog::class,20)->create();
-        factory(App\Istifadeci::class,30)->create();
+        factory(App\Client::class,30)->create();
         factory(App\Models\Istirahet::class,20)->create();
         factory(App\Models\Kataloq::class,14)->create();
         factory(App\Models\Muzakire::class,15)->create();

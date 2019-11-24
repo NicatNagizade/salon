@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Istifadeci;
+namespace App\Http\Controllers\Auth\Client;
 
 use App\Http\Controllers\Controller;
-use App\Istifadeci;
-use App\User;
+use App\Client;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -39,8 +38,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:istifadeci');
-        $this->middleware('guest:admins');
+        $this->middleware('guest:client');
+        $this->middleware('guest:admin');
         $this->middleware('guest');
     }
 
@@ -54,7 +53,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:clients'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -67,7 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Istifadeci::create([
+        return Client::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -75,6 +74,6 @@ class RegisterController extends Controller
     }
     protected function guard()
     {
-        return Auth::guard('istifadeci');
+        return Auth::guard('client');
     }
 }

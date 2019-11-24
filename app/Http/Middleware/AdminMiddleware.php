@@ -15,8 +15,8 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next, $roless = 'master')
     {
-        if(auth('admins')->check()){
-            $admin_role = auth('admins')->user()->role;
+        if(auth('admin')->check()){
+            $admin_role = auth('admin')->user()->role;
             if($admin_role == 'master'){
                 return $next($request);
             }
