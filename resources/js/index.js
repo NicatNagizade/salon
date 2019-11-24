@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router} from 'react-router-dom'
 import ReactDOM from 'react-dom'
-import {Header} from './views'
+import Header from './views/layouts/header'
 import IndexProvider from './contexts';
 import IndexRoutes from './routes';
 

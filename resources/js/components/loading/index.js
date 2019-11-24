@@ -6,7 +6,7 @@ export default function Loading({start = 0, ...props}){
     useEffect(()=>{
         const timer = setTimeout(() => {
             setpercent(percent+19)
-        }, 1000);
+        }, 1700);
         if(percent>80) clearTimeout(timer)
         return()=> clearTimeout(timer)
     },[percent])

@@ -22,9 +22,6 @@ export default function Header() {
                 <Menu.Item key="mail6">
                     <Logout />
                 </Menu.Item>
-                <Menu.Item key="mail4">
-                    <Link to="/test">Test</Link>
-                </Menu.Item>
                 <Menu.Item key="mail3">
                     <MySearch />
                 </Menu.Item>
