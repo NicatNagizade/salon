@@ -7,17 +7,19 @@ import Logout from './logout';
 import { context } from '../../../contexts';
 
 export default function Header() {
+    const {t} = context()
+    console.log('test')
     return (
         <header>
             <Menu mode="horizontal">
                 <Menu.Item key="mail">
-                    <Link to="/">Home</Link>
+                    <Link to="/">{t.esas_sehife}</Link>
                 </Menu.Item>
                 <Menu.Item key="mail1">
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">{t.giris}</Link>
                 </Menu.Item>
                 <Menu.Item key="mail2">
-                    <Link to="/register">Register</Link>
+                    <Link to="/register">{t.qeydiyyat}</Link>
                 </Menu.Item>
                 <Menu.Item key="mail6">
                     <Logout />

@@ -5,7 +5,7 @@ import Axios from 'axios'
 import { context } from '../../contexts'
 
 export default function Login({history,path = ''}){
-    const {setauth} = context()
+    const {setauth,t} = context()
     const ref_email = useRef()
     const ref_password = useRef()
     const ref_remember = useRef()
@@ -48,7 +48,7 @@ export default function Login({history,path = ''}){
                 <Input.Password prefix={<Icon type="lock" />} placeholder="Password" ref={ref_password} />
             </Form.Item>
             <Form.Item>
-                <Checkbox ref={ref_remember}>Remember me</Checkbox>
+                <Checkbox ref={ref_remember}>{t.xatirla}</Checkbox>
                 <Link style={{float:'right'}} to="/forgot">
                     Forgot password
                 </Link>

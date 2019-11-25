@@ -1,3 +1,8 @@
 {
-    "esas_sehife":"Home"
+    "esas_sehife":"Home",
+    "qeydiyyat":"Register",
+    "giris":"Login",
+    "axtaris":"Search",
+    "xatirla":"Remember me",
+    "cixis":"Logout"
 }

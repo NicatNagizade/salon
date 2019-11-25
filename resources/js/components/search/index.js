@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Select } from 'antd'
 import Axios from 'axios';
+import { context } from '../../contexts';
 const { Option } = Select
 
 export default function MySearch({...props}) {
+    const {t} = context()
     const [timeout, settime] = useState(0)
     const [loading,setloading] = useState(false)
     const [data, setdata] = useState([])
@@ -36,7 +38,7 @@ export default function MySearch({...props}) {
         <Select showArrow={false}
             filterOption={false} 
             showSearch
-            value="search ..."
+            value={`${t.axtaris} ...`}
             style={{ width: '150px' }} 
             onChange={handleChange}
             onSearch={handleSearch}

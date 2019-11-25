@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Models\SekilUser::class,20)->create();
         factory(App\User::class,30)->create();
         factory(App\Models\Xidmet::class,20)->create();
+        factory(App\Models\Vip::class,15)->create();
         factory(App\Models\Reytinq::class,15)->create();
     }
 }
