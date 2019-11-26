@@ -12,6 +12,9 @@ export default function Vips(){
         .then(res=>{
             setdata(res.data)
         })
+        .catch(()=>{
+            setdata({})
+        })
         return()=>{
             setdata({})
         }

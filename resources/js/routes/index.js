@@ -6,6 +6,7 @@ import NotFound from '../views/not_found'
 import Home from '../views/home'
 import SalonRoutes from './salon'
 import ForgotPassword from '../views/auth/forgot'
+import ResetPassword from '../views/auth/reset'
 
 export default function IndexRoutes(){
     return(
@@ -15,6 +16,7 @@ export default function IndexRoutes(){
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/forgot" component={ForgotPassword} />
+            <Route exact path="/password/reset/:token" component={ResetPassword} />
             <Route component={NotFound} />
         </Switch>
     )

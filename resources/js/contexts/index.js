@@ -32,7 +32,7 @@ export default function IndexProvider({ children }) {
     console.log(auth)
     return (
         <div>
-            {loading && <Loading start={22} />}
+            {loading && <Loading style={{position:'fixed',zIndex:'999',top:'-10px'}} start={22} />}
             {useMemo(() => {
                 return (
                     <Provider value={data}>

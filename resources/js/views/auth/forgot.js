@@ -14,9 +14,6 @@ export default function ForgotPassword() {
         const email = ref_email.current.input.value
         setloading(true)
         Axios.post('/password/email',{email})
-        .then(res=>{
-            console.log(res.data)
-        })
         .catch(res=>{
             seterror(res.response.data.errors)
         })

@@ -11,6 +11,6 @@ export default function Loading({start = 0, ...props}){
         return()=> clearTimeout(timer)
     },[percent])
     return(
-        <Progress style={{position:'fixed',zIndex:'999',top:'-10px'}} {...props} percent={parseInt(percent)} size="small" status="active" />
+        <Progress {...props} percent={parseInt(percent)} size="small" status="active" />
     )
 }
