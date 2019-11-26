@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Select } from 'antd'
-import Axios from 'axios';
 import { context } from '../../contexts';
+import { searchfetch } from '../../contexts/fetch_data';
 const { Option } = Select
 
-export default function MySearch({...props}) {
+export default function MySearch({path='/search',time=500,...props}) {
     const {t} = context()
     const [timeout, settime] = useState(0)
     const [loading,setloading] = useState(false)
@@ -18,7 +18,7 @@ export default function MySearch({...props}) {
             return
         }
         settime(setTimeout(() => {
-            Axios.get('/search',{params:{soz : e}})
+            searchfetch(path,e)
                 .then(res => {
                     res.data&&
                     setdata(res.data)
@@ -26,7 +26,7 @@ export default function MySearch({...props}) {
                 .finally(()=>{
                     setloading(false)
                 })
-        }, 500))
+        }, time))
     }
     const handleChange = e => {
         console.log(e)
@@ -41,6 +41,7 @@ export default function MySearch({...props}) {
             value={`${t.axtaris} ...`}
             style={{ width: '150px' }} 
             onChange={handleChange}
+            onFocus={handleSearch}
             onSearch={handleSearch}
             loading={loading}
             defaultActiveFirstOption={false}

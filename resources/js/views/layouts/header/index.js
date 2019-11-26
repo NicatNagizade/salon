@@ -1,14 +1,13 @@
-import React,{useState, useContext} from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import { Menu } from 'antd';
 import MySearch from '../../../components/search';
 import HeaderLang from './language';
 import Logout from './logout';
 import { context } from '../../../contexts';
+import {Link} from 'react-router-dom'
 
 export default function Header() {
-    const {t} = context()
-    console.log('test')
+    const { t } = context()
     return (
         <header>
             <Menu mode="horizontal">
@@ -20,6 +19,9 @@ export default function Header() {
                 </Menu.Item>
                 <Menu.Item key="mail2">
                     <Link to="/register">{t.qeydiyyat}</Link>
+                </Menu.Item>
+                <Menu.Item key="mail7">
+                    <Link to="/salon">{t.salonlar}</Link>
                 </Menu.Item>
                 <Menu.Item key="mail6">
                     <Logout />

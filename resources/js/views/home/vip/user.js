@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import Vip from '.'
-import Axios from 'axios'
+import React from 'react'
+import Lists from './list'
 
-export default function VipUsers(){
-    const [data,setdata] = useState(false)
-    useEffect(()=>{
-        Axios.get('/vip/users')
-        .then(res=>{
-            setdata(res.data)
-        })
-        return()=>{
-            setdata(false)
-        }
-    },[])
-    return(data &&
-        <Vip data={data} />
+export default function VipUsers({data}){
+    return(
+        <Lists data={data} path="/user"/>
     )
 }

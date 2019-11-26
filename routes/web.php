@@ -34,14 +34,6 @@ Route::prefix('admin')->namespace('Auth\Admin')->group(function(){
     // Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm');
 });
 
-Route::namespace('Api')->group(function(){
-    Route::prefix('vip')->group(function(){
-        Route::get('users','VipController@users');
-        Route::get('salons','VipController@salons');
-        Route::get('kataloqs','VipController@kataloqs');
-    });
-});
-
 // Route::view('{index?}','index');
 Route::fallback(function () {
     return view('index');

@@ -1,0 +1,12 @@
+.salonlar{
+    display: flex;
+    flex-wrap: wrap;
+    a{
+        margin:10px;
+        width: 30%;
+        img.salonlar-image{
+            height: 300px;
+            width: 100%;
+        }
+    }
+}

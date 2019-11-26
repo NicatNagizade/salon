@@ -48,7 +48,5 @@ class LoginController extends Controller
         $this->guard()->logout();
         auth()->logout();
         auth('admin')->logout();
-
-        return '';
     }
 }

@@ -4,7 +4,7 @@ import Img from '../../components/image'
 
 export default function Slide() {
     return (
-        <Carousel autoplay className="my-slide">
+        <Carousel autoplay draggable className="my-slide">
             <Img src="/images/users/1.jpg" />
             <Img src="/images/users/2.jpg" />
             <Img src="/images/users/3.jpg" />

@@ -24470,14 +24470,30 @@ div.ant-typography-edit-content {
     opacity: 0;
   }
 }.my-slide {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  height: 400px;
+  height: 500px;
 }
 
 .my-slide img {
   width: 100%;
-  height: 400px;
+  height: 500px;
+}
+
+.salonlar {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.salonlar a {
+  margin: 10px;
+  width: 30%;
+}
+
+.salonlar a img.salonlar-image {
+  height: 300px;
+  width: 100%;
 }
 
 .login-form {
