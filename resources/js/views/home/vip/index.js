@@ -8,15 +8,14 @@ import { vipsfetch } from '../../../contexts/fetch_data'
 export default function Vips(){
     const [data,setdata] = useState({})
     useEffect(()=>{
+        let mounted = true
         vipsfetch()
         .then(res=>{
+            if(mounted)
             setdata(res.data)
         })
-        .catch(()=>{
-            setdata({})
-        })
         return()=>{
-            setdata({})
+            mounted = false
         }
     },[])
     return(

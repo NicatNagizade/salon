@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Form, Input, Icon, Button } from 'antd'
-import Axios from 'axios'
 import { context } from '../../contexts'
+import { resetfetch } from '../../contexts/fetch_data'
 
 export default function ResetPassword(props) {
     const {setauth} = context()
@@ -27,7 +27,7 @@ export default function ResetPassword(props) {
         const password_confirmation = ref_password_confirmation.current.input.value
         const email = ref_email.current.input.value
         setloading(true)
-        Axios.post('/password/reset',{email,password,password_confirmation,token:props.match.params.token})
+        resetfetch(email,password,password_confirmation,props.match.params.token)
         .then(res=>{
             setauth(res.data)
             setloading(false)

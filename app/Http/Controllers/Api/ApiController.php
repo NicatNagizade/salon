@@ -16,9 +16,9 @@ class ApiController extends Controller
         return ['user'=>$user,'salon'=>$salon,'kataloq'=>$kataloq];
     }
     public function salon(){
-        return Salon::select(['id','ad','adres','sekil'])->paginate(9);
+        return Salon::select(['id','ad','adres','sekil'])->paginate(6);
     }
     public function salon_id($id){
-        return Salon::find($id);
+        return Salon::with('sekiller')->find($id);
     }
 }

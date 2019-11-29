@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
-import { Form, Input, Icon, Button } from 'antd'
+import { Form, Input, Icon, Button, notification } from 'antd'
 import Axios from 'axios'
+import { forgotfetch } from '../../contexts/fetch_data'
 
 export default function ForgotPassword() {
     const [loading, setloading] = useState(false)
@@ -8,13 +9,28 @@ export default function ForgotPassword() {
     const ref_email = useRef()
     const email_status = error.email && {
         validateStatus : 'error',
-        help:error.email[0]
+        help:error.email[0],
+        hasFeedback:true
     }
+    const openNotification = () => {
+        notification.open({
+          message: 'Bildiriş',
+          description:
+            'Email ünvanınıza bildiriş göndərildi',
+          icon: <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />,
+        });
+      };
     const handleClick = () => {
         const email = ref_email.current.input.value
         setloading(true)
-        Axios.post('/password/email',{email})
+        forgotfetch(email)
+        .then(()=>{
+            cons
+            email = ''
+            openNotification()
+        })
         .catch(res=>{
+            res.response &&
             seterror(res.response.data.errors)
         })
         .finally(()=>{

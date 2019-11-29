@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Pagination } from 'antd'
-import Axios from 'axios'
 import { Link } from 'react-router-dom'
 import { context } from '../../contexts'
 import { salonlarfetch } from '../../contexts/fetch_data'
@@ -11,21 +10,27 @@ export default function Salon() {
     const [salonlar, setsalonlar] = useState('')
     const { data, current_page, last_page } = salonlar
     useEffect(() => {
+        let mounted = true
         setloading(true)
         salonlarfetch()
-            .then(res => {
+        .then(res => {
+            if(mounted){
                 setsalonlar(res.data)
                 setloading(false)
-                
-            })
+            }
+        })
+        return()=>{
+            setloading(false)
+            mounted = false
+        }
     }, [])
     const handleChange = page => {
         setloading(true)
         salonlarfetch(page)
-            .then(res => {
-                setsalonlar(res.data)
-                setloading(false)
-            })
+        .then(res => {
+            setsalonlar(res.data)
+            setloading(false)
+        })
     }
     return (
         <div>

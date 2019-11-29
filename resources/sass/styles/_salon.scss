@@ -10,3 +10,13 @@
         }
     }
 }
+.salon-slide{
+    position: relative;
+    &-basliq{
+        position: absolute;
+        bottom: 5%;
+        left: 2%;
+        background-color: whitesmoke;
+        font-size: 24px;
+    }
+}
