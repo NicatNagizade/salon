@@ -10,13 +10,53 @@
         }
     }
 }
-.salon-slide{
-    position: relative;
-    &-basliq{
-        position: absolute;
-        bottom: 5%;
-        left: 2%;
-        background-color: whitesmoke;
-        font-size: 24px;
+.salon-info{
+    width: 85%;
+    margin:15px auto;
+    &-sekil{
+        width: 100%;
+        height: 500px;
+        border-radius: 15px;
+    }
+    &-ust{
+        display: flex;
+        align-items: flex-end;
+        margin: 10px 0;
+        overflow: hidden;
+        .salon-ad{
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        .salon-adres{
+            font-size: 18px;
+            margin-left: 24px;
+        }
+    }
+    .salon-info-melumat-sekil{
+        display: flex;
+    }
+    .salon-info-orta{
+        max-height: 250;
+        overflow: hidden;
+    }
+    .salon-slide{
+        &-div{
+            position: relative;
+            img{
+                width: 100%;
+                height: 250px;
+            }
+            .salon-slide-basliq{
+                position: absolute;
+                bottom: 5%;
+                left: 2%;
+                background-color: whitesmoke;
+                font-size: 24px;
+            }
+        }
+    }
+    .isci-cart-image{
+        width: 100%;
+        height: 250px;
     }
 }

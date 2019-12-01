@@ -21,9 +21,10 @@ class CreateSalonsTable extends Migration
             $table->string('adres',300)->nullable();
             $table->string('telefon',30)->nullable();
             $table->string('sekil',300)->nullable();
+            $table->string('logo',300)->nullable();
             $table->string('qeyd',500)->nullable();
             $table->boolean('cins')->default(1);
-            $table->timestamps();
+            $table->timestamp('tarix');
         });
     }
 

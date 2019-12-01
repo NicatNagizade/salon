@@ -21,4 +21,5 @@ Route::namespace('Api')->group(function(){
     Route::get('vips','ApiController@vips');
     Route::get('salon','ApiController@salon');
     Route::get('salon/{id}','ApiController@salon_id');
+    Route::get('user/{id}','ApiController@user_id');
 });

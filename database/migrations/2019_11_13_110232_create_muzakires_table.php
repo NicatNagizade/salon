@@ -19,8 +19,8 @@ class CreateMuzakiresTable extends Migration
             $table->enum('role',['user','client']);
             $table->unsignedBigInteger('role_id');
             $table->string('rey',500)->nullable();
-            $table->dateTime('tarix')->nullable();
             $table->boolean('blog_like')->default(0);
+            $table->timestamp('tarix');
         });
     }
 

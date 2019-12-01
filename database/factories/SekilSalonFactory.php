@@ -10,5 +10,6 @@ $factory->define(SekilSalon::class, function (Faker $faker) {
         'salon_id' => $faker->numberBetween(1,10),
         'sekil'=>$faker->imageUrl(),
         'basliq'=>$faker->realText(20),
+        'qeyd' => $faker->realText(300)
     ];
 });

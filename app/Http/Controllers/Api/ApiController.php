@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Salon;
+use App\Models\SekilSalon;
 use App\Models\Vip;
+use App\User;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -19,6 +21,13 @@ class ApiController extends Controller
         return Salon::select(['id','ad','adres','sekil'])->paginate(6);
     }
     public function salon_id($id){
-        return Salon::with('sekiller')->find($id);
+        $salon = Salon::find($id);
+        $salon['isciler'] = User::where('salon_id',$salon->id)->get();
+        $salon['sekiller'] = SekilSalon::where('salon_id',$salon->id)->get();
+        return response($salon);
+    }
+    public function user_id($id){
+        $user = User::find($id);
+        return $user;
     }
 }

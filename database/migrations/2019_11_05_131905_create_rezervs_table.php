@@ -21,6 +21,8 @@ class CreateRezervsTable extends Migration
             $table->time('bitme');
             $table->date('tarix');
             $table->string('qeyd',500)->nullable();
+            $table->enum('status',['gozlemede','imtina','qebul','geri_alinma'])->default('gozlemede');
+            $table->string('sebeb',500)->nullable();
         });
     }
 

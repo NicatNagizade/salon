@@ -27,5 +27,7 @@ $factory->define(User::class, function (Faker $faker) {
         'soyad' => $faker->lastName,
         'telefon'=>$faker->phoneNumber,
         'sekil' => $faker->imageUrl(),
+        'qeyd' => $faker->realText(300),
+        'salon_id' => $faker->numberBetween(1,10)
     ];
 });

@@ -7,12 +7,14 @@ import Home from '../views/home'
 import SalonRoutes from './salon'
 import ForgotPassword from '../views/auth/forgot'
 import ResetPassword from '../views/auth/reset'
+import UserRoutes from './user'
 
 export default function IndexRoutes(){
     return(
         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/salon" component={SalonRoutes} />
+            <Route path="/user" component={UserRoutes} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/forgot" component={ForgotPassword} />

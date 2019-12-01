@@ -9,5 +9,6 @@ $factory->define(Kataloq::class, function (Faker $faker) {
     return [
         'ad' => $faker->realText(10),
         'sekil' => $faker->imageUrl(),
+        'qeyd' => $faker->realText(100)
     ];
 });

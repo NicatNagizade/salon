@@ -9,6 +9,7 @@ $factory->define(SekilUser::class, function (Faker $faker) {
     return [
         'user_id' => $faker->numberBetween(1,10),
         'sekil'=>$faker->imageUrl(),
-        'basliq'=>$faker->realText(20)
+        'basliq'=>$faker->realText(20),
+        'qeyd' => $faker->realText(300)
     ];
 });

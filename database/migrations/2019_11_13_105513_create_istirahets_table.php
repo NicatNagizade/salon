@@ -18,7 +18,7 @@ class CreateIstirahetsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->date('baslama');
             $table->date('bitme');
-            $table->string('qeyd',100);
+            $table->string('qeyd',500);
         });
     }
 

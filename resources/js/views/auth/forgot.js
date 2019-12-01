@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react'
 import { Form, Input, Icon, Button, notification } from 'antd'
-import Axios from 'axios'
 import { forgotfetch } from '../../contexts/fetch_data'
 
 export default function ForgotPassword() {

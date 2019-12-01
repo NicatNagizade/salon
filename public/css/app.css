@@ -24496,11 +24496,56 @@ div.ant-typography-edit-content {
   width: 100%;
 }
 
-.salon-slide {
+.salon-info {
+  width: 85%;
+  margin: 15px auto;
+}
+
+.salon-info-sekil {
+  width: 100%;
+  height: 500px;
+  border-radius: 15px;
+}
+
+.salon-info-ust {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: end;
+          align-items: flex-end;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.salon-info-ust .salon-ad {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.salon-info-ust .salon-adres {
+  font-size: 18px;
+  margin-left: 24px;
+}
+
+.salon-info .salon-info-melumat-sekil {
+  display: -webkit-box;
+  display: flex;
+}
+
+.salon-info .salon-info-orta {
+  max-height: 250;
+  overflow: hidden;
+}
+
+.salon-info .salon-slide-div {
   position: relative;
 }
 
-.salon-slide-basliq {
+.salon-info .salon-slide-div img {
+  width: 100%;
+  height: 250px;
+}
+
+.salon-info .salon-slide-div .salon-slide-basliq {
   position: absolute;
   bottom: 5%;
   left: 2%;
@@ -24508,8 +24553,18 @@ div.ant-typography-edit-content {
   font-size: 24px;
 }
 
+.salon-info .isci-cart-image {
+  width: 100%;
+  height: 250px;
+}
+
 .login-form {
   max-width: 300px;
   margin: 0 auto;
+}
+
+.my-image {
+  width: 100%;
+  height: 100%;
 }
 

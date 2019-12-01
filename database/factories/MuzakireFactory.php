@@ -9,7 +9,7 @@ $factory->define(Muzakire::class, function (Faker $faker) {
     return [
         'blog_id' => $faker->numberBetween(1,20),
         'role' => $faker->randomElement(['user','client']),
-        'role_id' => $faker->unique()->numberBetween(1,20),
+        'role_id' => $faker->numberBetween(1,20),
         'rey' => $faker->text,
         'tarix' => $faker->dateTime(),
         'blog_like' => $faker->boolean(),

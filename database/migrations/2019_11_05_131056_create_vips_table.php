@@ -17,7 +17,7 @@ class CreateVipsTable extends Migration
             $table->bigIncrements('id');
             $table->enum('role',['user','salon','kataloq']);
             $table->bigInteger('role_id');
-            $table->unsignedTinyInteger('sira')->default(1);
+            $table->unsignedTinyInteger('sira')->default(100);
         });
     }
 

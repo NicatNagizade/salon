@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react'
 import Loading from '../components/loading'
 import { authfetch, langfetch } from './fetch_data'
+import Cookies from 'js-cookie'
 
 const MyContext = createContext()
 const Provider = MyContext.Provider
@@ -10,11 +11,13 @@ const context = () => {
 export { context }
 
 export default function IndexProvider({ children }) {
+    const dil = Cookies.get('lang') ? Cookies.get('lang') : 'az'
     const [t, sett] = useState({})
-    const [lang, setlang] = useState('az')
+    const [lang, setlang] = useState(dil)
     const [auth, setauth] = useState('')
     const [loading, setloading] = useState(true)
-    const data = { setlang, t, setauth, auth,setloading }
+    const data = { lang,setlang, t, setauth, auth,setloading }
+    const render_memo = [t,auth]
     useEffect(() => {
         authfetch()
             .then(res => {
@@ -25,6 +28,7 @@ export default function IndexProvider({ children }) {
         setloading(true)
         langfetch(lang)
             .then(res => {
+                Cookies.set('lang',lang,{expires:7})
                 sett(res.data)
                 setloading(false)
             })
@@ -38,7 +42,7 @@ export default function IndexProvider({ children }) {
                     <Provider value={data}>
                         {children}
                     </Provider>)
-            }, [t, auth])}
+            }, render_memo)}
         </div>
     )
 }

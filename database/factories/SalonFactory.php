@@ -12,5 +12,6 @@ $factory->define(Salon::class, function (Faker $faker) {
         'adres'=>$faker->address,
         'telefon'=>$faker->phoneNumber,
         'sekil' => $faker->imageUrl(),
+        'qeyd' => $faker->realText(300)
     ];
 });
