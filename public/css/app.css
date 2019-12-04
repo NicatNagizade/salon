@@ -24558,6 +24558,21 @@ div.ant-typography-edit-content {
   height: 250px;
 }
 
+.rezerv-from {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.rezerv-times-title {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.rezerv-times button {
+  width: 85px;
+}
+
 .login-form {
   max-width: 300px;
   margin: 0 auto;

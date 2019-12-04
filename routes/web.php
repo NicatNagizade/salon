@@ -4,7 +4,6 @@
 Route::get('init','IndexController@init')->name('init');
 Route::get('test','IndexController@test')->name('test');
 Route::get('errors/{redirect?}/{error?}','IndexController@errors')->name('errors');
-Route::get('search','IndexController@search')->name('search');
 // Route::get('refresh','IndexController@refresh');
 
 

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Models\Istirahet::class,20)->create();
         factory(App\Models\Kataloq::class,50)->create();
         factory(App\Models\Muzakire::class,50)->create();
-        factory(App\Models\Rezerv::class,50)->create();
+        factory(App\Models\Rezerv::class,100)->create();
         factory(App\Models\Salon::class,100)->create();
         factory(App\Models\SekilSalon::class,40)->create();
         factory(App\Models\SekilUser::class,40)->create();

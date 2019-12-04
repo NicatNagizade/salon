@@ -24,8 +24,6 @@ export default function ForgotPassword() {
         setloading(true)
         forgotfetch(email)
         .then(()=>{
-            cons
-            email = ''
             openNotification()
         })
         .catch(res=>{

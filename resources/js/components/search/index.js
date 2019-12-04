@@ -4,9 +4,11 @@ import { context } from '../../contexts';
 import { searchfetch } from '../../contexts/fetch_data';
 const { Option } = Select
 
-export default function MySearch({path='/search',time=500,...props}) {
+export default function MySearch(props) {
     const {t} = context()
+    const {path='/isci',time=500, placeholder = `${t.axtaris} ...`,valueChange = true, onSelect,...res} = props
     const [timeout, settime] = useState(0)
+    const [value,setvalue] = useState()
     const [loading,setloading] = useState(false)
     const [data, setdata] = useState([])
     const handleSearch = e => {
@@ -18,7 +20,7 @@ export default function MySearch({path='/search',time=500,...props}) {
             return
         }
         settime(setTimeout(() => {
-            searchfetch(path,e)
+            searchfetch(path, e)
                 .then(res => {
                     res.data&&
                     setdata(res.data)
@@ -29,24 +31,27 @@ export default function MySearch({path='/search',time=500,...props}) {
         }, time))
     }
     const handleChange = e => {
-        console.log(e)
+        onSelect(e)
+        if(!valueChange){
+            setvalue({value:placeholder})
+        }
     }
     const option = data.map(d => {
-        return <Option key={d}>{d}</Option>
+        return <Option key={d.id}>{d.name}</Option>
     })
     return (
         <Select showArrow={false}
             filterOption={false} 
             showSearch
-            value={`${t.axtaris} ...`}
-            style={{ width: '150px' }} 
+            placeholder={placeholder}
+            {...value}
             onChange={handleChange}
             onFocus={handleSearch}
             onSearch={handleSearch}
             loading={loading}
             defaultActiveFirstOption={false}
             notFoundContent={null}
-            {...props}
+            {...res}
             >
             {option}
         </Select>

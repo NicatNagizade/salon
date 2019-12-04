@@ -28,14 +28,6 @@ class IndexController extends Controller
     {
         return response(['redirect'=>$redirect,'error'=>$error]);
     }
-    public function search(){
-        $soz = request('soz');
-        if(!$soz){
-            return response([]);
-        }
-        $data = User::select('name')->where('name','like',"%$soz%")->get()->pluck('name');
-        return response($data);
-    }
     // public function refresh(){
     //     DB::table('tables')->truncate();
     //     $tables = DB::table('migrations')->select('migration')->get();

@@ -8,6 +8,7 @@ import SalonRoutes from './salon'
 import ForgotPassword from '../views/auth/forgot'
 import ResetPassword from '../views/auth/reset'
 import UserRoutes from './user'
+import ClientRoutes from './client'
 
 export default function IndexRoutes(){
     return(
@@ -15,6 +16,7 @@ export default function IndexRoutes(){
             <Route exact path="/" component={Home} />
             <Route path="/salon" component={SalonRoutes} />
             <Route path="/user" component={UserRoutes} />
+            <Route path="/client" component={ClientRoutes} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/forgot" component={ForgotPassword} />

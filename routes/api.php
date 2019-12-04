@@ -21,5 +21,9 @@ Route::namespace('Api')->group(function(){
     Route::get('vips','ApiController@vips');
     Route::get('salon','ApiController@salon');
     Route::get('salon/{id}','ApiController@salon_id');
-    Route::get('user/{id}','ApiController@user_id');
+    Route::get('search/isci','SearchController@isci')->name('search');
+    Route::prefix('user')->group(function(){
+        Route::get('{id}','UserController@user_id');
+        Route::get('rezerv_data/{id}','UserController@rezerv_data');
+    });
 });
