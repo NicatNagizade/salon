@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Form, Row, Col } from 'antd'
+import { Form, Row, Col, Tabs } from 'antd'
 import MySearch from '../../../components/search'
 import { rezervDatafetch } from '../../../contexts/fetch_data'
 import { context } from '../../../contexts'
+import moment from 'moment'
 import TimeCalendar from './time'
-
+const {TabPane} = Tabs
 export default function Rezerv() {
     const { t, setloading } = context()
     const [data, setdata] = useState()
@@ -37,17 +38,29 @@ export default function Rezerv() {
                     <label>Adress: {data && <strong>{data.salon.adres}</strong>}</label>
                 </Col>
             </Row>
-            {
-                data && data.rezerv &&
-                <div>
-                    <div className="rezerv-times-title">Bugun</div>
-                    <TimeCalendar data={data.rezerv} />
-                    <div className="rezerv-times-title">Sabah</div>
-                    <TimeCalendar />
-                    <div className="rezerv-times-title">06.12.2019</div>
-                    <TimeCalendar />
-                </div>
-            }
+            <Row gutter={20}>
+                <Col span={12}>
+
+                </Col>
+                <Col span={12}>
+                    {
+                        data && data.rezerv &&
+                        <div>
+                            <Tabs defaultActiveKey="1">
+                                <TabPane tab="Bugun" key="1">
+                                    <TimeCalendar data={data.rezerv} />
+                                </TabPane>
+                                <TabPane tab="Sabah" key="2">
+                                    <TimeCalendar data={data.rezerv} day={1} />
+                                </TabPane>
+                                <TabPane tab="06.12.2019" key="3">
+                                <   TimeCalendar data={data.rezerv} day={2} />
+                                </TabPane>
+                            </Tabs>
+                        </div>
+                    }
+                </Col>
+            </Row>
         </Form>
     )
 }
