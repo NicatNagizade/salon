@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import Header from './views/layouts/header'
 import IndexProvider from './contexts';
 import IndexRoutes from './routes';
+import './styles/index.scss';
 
 export default function Index () {
     return (

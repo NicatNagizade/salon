@@ -13,7 +13,7 @@ class Vip extends Model
         return $this->belongsTo('App\User','role_id');
     }
     public static function data(string $role){
-        $vips = self::where('role',$role)->limit(4)->orderBy('sira')->get(['id']);
+        $vips = self::where('role',$role)->limit(4)->orderBy('id','desc')->get(['id']);
         foreach ($vips as $vip) {
             $vip_id[] = $vip['id'];
         }

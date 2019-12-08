@@ -1,0 +1,14 @@
+.rezerv-from{
+    width: 90%;
+    margin:20px auto;
+}
+.rezerv-times{
+    &-title{
+        text-align: center;
+        margin-top: 10px;
+        font-weight: 700;
+    }
+    button{
+        width: 85px;
+    }
+}
