@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Spin } from 'antd'
 
 export default function Img({src,...props}){
     const [loading,setloading] = useState(true)
     const [image,setimage] = useState(src)
+    useEffect(()=>{
+        setloading(true)
+        setimage(src)
+    },[src])
     const handleLoad=()=>{
         setloading(false)
     }

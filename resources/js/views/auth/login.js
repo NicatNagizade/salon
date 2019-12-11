@@ -1,15 +1,17 @@
 import React, { useRef, useState } from 'react'
-import {Link} from 'react-router-dom'
-import { Input, Form, Button, Icon,Checkbox } from 'antd'
+import {Link,useHistory} from 'react-router-dom'
+import { Input, Form, Button, Icon,Checkbox, Radio } from 'antd'
 import Axios from 'axios'
 import { context } from '../../contexts'
 
-export default function Login({history,path = ''}){
+export default function Login(){
+    const history = useHistory()
     const {setauth,t} = context()
     const ref_email = useRef()
     const ref_password = useRef()
     const ref_remember = useRef()
     const [loading,setloading] = useState(false)
+    const [path,setpath] = useState('/client');
     const [errors, seterrors] = useState({email:'',password:''})
     const email_status = errors.email && {
         validateStatus : 'error',
@@ -39,6 +41,9 @@ export default function Login({history,path = ''}){
             seterrors(res.response.data.errors)
         })
     }
+    const radioChange = (e)=>{
+        setpath(e.target.value);
+    }
     return(
         <Form className="login-form">
             <Form.Item {...email_status}>
@@ -46,8 +51,12 @@ export default function Login({history,path = ''}){
             </Form.Item>
             <Form.Item {...password_status}>
                 <Input.Password prefix={<Icon type="lock" />} placeholder="Password" ref={ref_password} />
-            </Form.Item>
-            <Form.Item>
+                <Radio.Group onChange={radioChange} value={path}>
+                    <Radio value="/client">İstifadəçi</Radio>
+                    <Radio value="">İşçi</Radio>
+                </Radio.Group><br/>
+            {/* </Form.Item>
+            <Form.Item> */}
                 <Checkbox ref={ref_remember}>{t.xatirla}</Checkbox>
                 <Link style={{float:'right'}} to="/forgot">
                     Forgot password

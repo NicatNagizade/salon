@@ -4,7 +4,7 @@ import Img from '../../../components/image'
 
 export default function Slide({sekiller}) {
     return (
-        <Carousel autoplay draggable className="salon-slide">
+        <Carousel autoplay draggable lazyLoad className="salon-slide">
             {
                 sekiller.map((data,i)=>{
                     const {sekil,basliq} = data

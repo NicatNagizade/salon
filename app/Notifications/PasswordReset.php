@@ -11,16 +11,16 @@ class PasswordReset extends Notification
 {
     use Queueable;
     private $token;
-    private $table;
+    private $path;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($token,$table = '')
+    public function __construct($token,$path = '')
     {
         $this->token = $token;
-        $this->table = $table;
+        $this->path = $path;
     }
 
     /**
@@ -43,8 +43,8 @@ class PasswordReset extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url($this->table.'/password/reset/'.$this->token))
+                    ->line('Yeni parol təyin etmək üçün butona klikləyin')
+                    ->action('Reset Password', url($this->path.'/password/reset/'.$this->token))
                     ->line('Thank you for using our application!');
     }
 

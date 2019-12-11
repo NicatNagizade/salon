@@ -16,12 +16,12 @@ export default function TimeCalendar({data = [],day = 0}) {
     },[])
     return (
         <div className="rezerv-times">
-            {button_date.map((b)=>{
+            {button_date.map((b,i)=>{
                 let res = {}
                 const m = moment(b,'HH:mm')
-                if(m.isBefore(moment()) && day == 0){
-                    return <Button>{' '}</Button>
-                }
+                // if(m.isBefore(moment()) && day == 0){
+                //     return <Button key={i}>{' '}</Button>
+                // }
                 data.map(d => {
                     if(d.tarix != moment().add(day,'days').format('YYYY-MM-DD')) return
                     const basla = moment(d.baslama,'HH:mm:ss').format('HH:mm')

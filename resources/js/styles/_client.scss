@@ -12,3 +12,15 @@
         width: 85px;
     }
 }
+.rezerv-profil{
+    margin: 15px;
+    &-image{
+        width: 90%;
+        height: 350px;
+        object-fit:fill;
+    }
+    &-title{
+        margin:3px 0;
+        font-size: 18px;
+    }
+}

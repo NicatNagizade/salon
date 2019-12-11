@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
-use App\User;
-use Illuminate\Support\Facades\DB;
-
 class IndexController extends Controller
 {
     public function __construct()

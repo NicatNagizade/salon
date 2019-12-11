@@ -11,7 +11,7 @@ export default function UserInfo(props){
         .then(res=>{
             setdata(res.data)
         })
-    },[])
+    },[id])
     return(data &&
         <div className="salon-info"> 
             <Img src={data.sekil} className="salon-info-sekil" />

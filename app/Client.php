@@ -23,6 +23,6 @@ class Client extends Authenticatable
     public $timestamps = false;
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new PasswordReset($token,$this->table));
+        $this->notify(new PasswordReset($token,'client'));
     }
 }

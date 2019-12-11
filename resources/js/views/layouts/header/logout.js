@@ -4,8 +4,7 @@ import Axios from 'axios'
 import { context } from '../../../contexts'
 
 export default function Logout(){
-    const {setauth,t} = context()
-    const [loading,setloading] = useState(false)
+    const {setauth,t,setloading} = context()
     const handleClick=()=>{
         setloading(true)
         Axios.post('/client/logout')
@@ -17,6 +16,6 @@ export default function Logout(){
         })
     }
     return(
-        <Button onClick={handleClick} loading={loading}>{t.cixis}</Button>
+        <a onClick={handleClick}>{t.cixis}</a>
     )
 }

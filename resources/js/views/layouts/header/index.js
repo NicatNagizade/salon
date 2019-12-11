@@ -1,43 +1,54 @@
 import React from 'react'
-import { Menu } from 'antd';
+import { Menu, Row, Col } from 'antd';
 import MySearch from '../../../components/search';
 import HeaderLang from './language';
 import Logout from './logout';
 import { context } from '../../../contexts';
-import {Link} from 'react-router-dom'
-import RezervLink from './rezerv';
+import { Link } from 'react-router-dom'
+import RezervLink from './rezerv'
+import HeaderSearch from './search';
 
 export default function Header() {
     const { t } = context()
     return (
         <header>
-            <Menu mode="horizontal">
-                {/* <Menu.Item key="mail">
-                    <Link to="/">{t.esas_sehife}</Link>
-                </Menu.Item> */}
-                <Menu.Item key="mail1">
-                    <Link to="/login">{t.giris}</Link>
-                </Menu.Item>
-                <Menu.Item key="mail2">
-                    <Link to="/register">{t.qeydiyyat}</Link>
-                </Menu.Item>
-                {/* <Menu.Item key="mail7">
-                    <Link to="/salon">{t.salonlar}</Link>
-                </Menu.Item> */}
-                
-                <Menu.Item key="mail8">
-                    <RezervLink />
-                </Menu.Item>
-                <Menu.Item key="mail6">
-                    <Logout />
-                </Menu.Item>
-                <Menu.Item key="mail3">
-                    <MySearch style={{width:'150px'}} valueChange={false}/>
-                </Menu.Item>
-                <Menu.Item key="mail5">
-                    <HeaderLang />
-                </Menu.Item>
-            </Menu>
+            <Row type="flex" justify="space-between" style={{ width: '95%', margin: '0 auto' }} align="middle">
+                <Col>
+                    LOGO
+                </Col>
+                <Col>
+                    <Menu mode="horizontal">
+                        <Menu.Item key="esas">
+                            <Link to="/">{t.esas_sehife}</Link>
+                        </Menu.Item>
+                        <Menu.Item key="salon">
+                            <Link to="/salon">{t.salonlar}</Link>
+                        </Menu.Item>
+                    </Menu>
+                </Col>
+                <Col>
+                    <Row type="flex" align="middle" gutter={20}>
+                        <Col>
+                            <HeaderSearch />
+                        </Col>
+                        <Col>
+                            <RezervLink />
+                        </Col>
+                        <Col>
+                            <HeaderLang />
+                        </Col>
+                        <Col>
+                            <Menu mode="horizontal">
+                                <Menu.SubMenu title="Accaunt">
+                                    <Menu.Item><Link to="/login">{t.giris}</Link></Menu.Item>
+                                    <Menu.Item><Link to="/register">{t.qeydiyyat}</Link></Menu.Item>
+                                    <Menu.Item><Logout /></Menu.Item>
+                                </Menu.SubMenu>
+                            </Menu>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
         </header>
     )
 }

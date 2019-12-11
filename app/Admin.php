@@ -22,6 +22,6 @@ class Admin extends Authenticatable
     ];
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new PasswordReset($token,$this->table));
+        $this->notify(new PasswordReset($token,'admin'));
     }
 }

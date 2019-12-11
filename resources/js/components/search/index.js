@@ -6,7 +6,7 @@ const { Option } = Select
 
 export default function MySearch(props) {
     const {t} = context()
-    const {path='/isci',time=500, placeholder = `${t.axtaris} ...`,valueChange = true, onSelect,...res} = props
+    const {path='/user',time=500, placeholder = `${t.axtaris} ...`,valueChange = true, onSelect,...res} = props
     const [timeout, settime] = useState(0)
     const [value,setvalue] = useState()
     const [loading,setloading] = useState(false)

@@ -1,12 +1,19 @@
 import React, { useRef, useState } from 'react'
-import { Form, Input, Button, Icon } from 'antd'
+import {useHistory} from 'react-router-dom'
+import { Form, Input, Button, Icon, Radio } from 'antd'
 import Axios from 'axios'
 import { context } from '../../contexts'
 
-export default function Register({history,path=''}){
+export default function Register(){
+    const history = useHistory()
     const {setauth} = context()
+    const [path,setpath] = useState('/client')
     const [loading,setloading] = useState(false)
     const [errors,seterrors] = useState({name:'',email:'',password:''})
+    const ref_name = useRef()
+    const ref_email = useRef()
+    const ref_password = useRef()
+    const ref_password_confirmation = useRef()
     const email_status = errors.email && {
         validateStatus : 'error',
         help:errors.email[0]
@@ -19,10 +26,6 @@ export default function Register({history,path=''}){
         validateStatus : 'error',
         help:errors.password[0]
     }
-    const ref_name = useRef()
-    const ref_email = useRef()
-    const ref_password = useRef()
-    const ref_password_confirmation = useRef()
     const handleClick=()=>{
         setloading(true)
         const name = ref_name.current.input.value
@@ -44,6 +47,9 @@ export default function Register({history,path=''}){
             seterrors(res.response.data.errors)
         })
     }
+    const radioChange = (e)=>{
+        setpath(e.target.value);
+    }
     return(
         <Form className="login-form">
             <Form.Item {...name_status}>
@@ -57,8 +63,12 @@ export default function Register({history,path=''}){
             </Form.Item>
             <Form.Item>
                 <Input.Password prefix={<Icon type="lock" />} placeholder="Password Confirmation" ref={ref_password_confirmation} />
-            </Form.Item>
-            <Form.Item>
+            <Radio.Group onChange={radioChange} value={path}>
+                    <Radio value="/client">İstifadəçi</Radio>
+                    <Radio value="">İşçi</Radio>
+            </Radio.Group>
+            {/* </Form.Item>
+            <Form.Item> */}
                 <Button loading={loading} type="primary" style={{width:'100%'}} onClick={handleClick}>Register</Button>
             </Form.Item>
         </Form>
