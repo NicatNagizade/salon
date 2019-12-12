@@ -10,6 +10,9 @@ const searchfetch = (path,soz)=>Axios.get('/api/search'+path,{params:{soz}})
 const resetfetch = (email,password,password_confirmation,token,path = '') => Axios.post(path+'/password/reset',{email,password,password_confirmation,token})
 const forgotfetch = (email,path = '') => Axios.post(path + '/password/email',{email})
 const rezervDatafetch = (e) => Axios.get('/api/user/rezerv_data/'+e);
+const guardNamefetch = ()=> Axios.get('/guard_name')
+const logoutfetch = ()=>Axios.post('/client/logout')
 
 export {authfetch,langfetch,salonlarfetch,vipsfetch,salonIdfetch,
-    userIdfetch,searchfetch,resetfetch,forgotfetch,rezervDatafetch }
+    userIdfetch,searchfetch,resetfetch,forgotfetch,rezervDatafetch,
+    guardNamefetch,logoutfetch }

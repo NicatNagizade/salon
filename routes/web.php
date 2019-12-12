@@ -2,6 +2,7 @@
 // app()->setlocale('az');
 
 Route::get('init','IndexController@init')->name('init');
+Route::get('guard_name','IndexController@guard_name')->name('guard_name');
 Route::get('test','IndexController@test')->name('test');
 Route::get('errors/{redirect?}/{error?}','IndexController@errors')->name('errors');
 // Route::get('refresh','IndexController@refresh');

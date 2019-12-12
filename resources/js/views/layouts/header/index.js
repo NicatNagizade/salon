@@ -7,9 +7,29 @@ import { context } from '../../../contexts';
 import { Link } from 'react-router-dom'
 import RezervLink from './rezerv'
 import HeaderSearch from './search';
+import HeaderProfile from './profile';
 
 export default function Header() {
-    const { t } = context()
+    const { t, auth } = context()
+    const Accaunt = () => {
+        const login = auth.id > 0 ? true : false;
+        return (
+            <Menu mode="horizontal">
+                {
+                    !login ?
+                    <Menu.SubMenu title="Accaunt">
+                        <Menu.Item><Link to="/login">{t.giris}</Link></Menu.Item>
+                        <Menu.Item><Link to="/register">{t.qeydiyyat}</Link></Menu.Item>
+                    </Menu.SubMenu>
+                    :
+                    <Menu.SubMenu title="Accaunt">
+                        <Menu.Item><HeaderProfile /></Menu.Item>
+                        <Menu.Item><Logout /></Menu.Item>
+                    </Menu.SubMenu>
+                }
+            </Menu>
+        )
+    }
     return (
         <header>
             <Row type="flex" justify="space-between" style={{ width: '95%', margin: '0 auto' }} align="middle">
@@ -38,13 +58,7 @@ export default function Header() {
                             <HeaderLang />
                         </Col>
                         <Col>
-                            <Menu mode="horizontal">
-                                <Menu.SubMenu title="Accaunt">
-                                    <Menu.Item><Link to="/login">{t.giris}</Link></Menu.Item>
-                                    <Menu.Item><Link to="/register">{t.qeydiyyat}</Link></Menu.Item>
-                                    <Menu.Item><Logout /></Menu.Item>
-                                </Menu.SubMenu>
-                            </Menu>
+                            <Accaunt />
                         </Col>
                     </Row>
                 </Col>

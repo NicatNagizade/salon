@@ -17,8 +17,19 @@ class IndexController extends Controller
         }
         return '';
     }
+    public function guard_name(){
+        foreach(parent::guards as $guard){
+            if(auth($guard)->check()){
+                if($guard == ''){
+                    $guard = 'user';
+                }
+                return $guard;
+            }
+        }
+        return '';
+    }
     public function test(){
-        return 'test';
+        return mytest();
     }
     public function errors($redirect = 'home',$error = 'error')
     {

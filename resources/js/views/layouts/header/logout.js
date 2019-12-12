@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { Button } from 'antd'
-import Axios from 'axios'
 import { context } from '../../../contexts'
+import { logoutfetch } from '../../../contexts/fetch_data'
 
 export default function Logout(){
     const {setauth,t,setloading} = context()
     const handleClick=()=>{
         setloading(true)
-        Axios.post('/client/logout')
+        logoutfetch()
         .then(()=>{
             setauth('')
         })

@@ -19,8 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Api')->group(function(){
     Route::get('vips','ApiController@vips');
-    Route::get('salon','ApiController@salon');
-    Route::get('salon/{id}','ApiController@salon_id');
+    Route::prefix('salon')->group(function(){
+        Route::get('','SalonController@salon');
+        Route::get('{id}','SalonController@salon_id');
+    });
     Route::prefix('search')->group(function(){
         Route::get('user','SearchController@user')->name('search.user');
         Route::get('umumi','SearchController@umumi')->name('search');

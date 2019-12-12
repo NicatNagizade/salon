@@ -5,6 +5,7 @@ import { rezervDatafetch } from '../../../contexts/fetch_data'
 import { context } from '../../../contexts'
 import TimeCalendar from './time'
 import ProfileUser from './profil'
+import moment from 'moment'
 const {TabPane} = Tabs
 export default function Rezerv() {
     const { t, setloading } = context()
@@ -16,6 +17,10 @@ export default function Rezerv() {
                 setloading(false)
                 setdata(res.data)
             })
+    }
+    const calendarDayAdd = (day)=>{
+        const newDay = moment().add(day,'day').format('DD.MM.YYYY')
+        return newDay
     }
     return (
         <Form className="rezerv-from">
@@ -35,8 +40,17 @@ export default function Rezerv() {
                                 <TabPane tab="Sabah" key="2">
                                     <TimeCalendar data={data.rezerv} day={1} />
                                 </TabPane>
-                                <TabPane tab="06.12.2019" key="3">
+                                <TabPane tab={calendarDayAdd(3)} key="3">
                                     <TimeCalendar data={data.rezerv} day={2} />
+                                </TabPane>
+                                <TabPane tab={calendarDayAdd(4)} key="4">
+                                    <TimeCalendar data={data.rezerv} day={3} />
+                                </TabPane>
+                                <TabPane tab={calendarDayAdd(5)} key="5">
+                                    <TimeCalendar data={data.rezerv} day={4} />
+                                </TabPane>
+                                <TabPane tab={calendarDayAdd(6)} key="6">
+                                    <TimeCalendar data={data.rezerv} day={5} />
                                 </TabPane>
                             </Tabs>
                         </div>

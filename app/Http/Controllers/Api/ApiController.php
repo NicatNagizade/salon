@@ -16,14 +16,4 @@ class ApiController extends Controller
         $kataloq = Vip::data('kataloq');
         return response(['user'=>$user,'salon'=>$salon,'kataloq'=>$kataloq]);
     }
-    public function salon(){
-        $salon = Salon::select(['id','ad','adres','sekil'])->paginate(6);
-        return response($salon);
-    }
-    public function salon_id($id){
-        $salon = Salon::find($id);
-        $salon['isciler'] = User::where('salon_id',$salon->id)->get();
-        $salon['sekiller'] = SekilSalon::where('salon_id',$salon->id)->get();
-        return response($salon);
-    }
 }

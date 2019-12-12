@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react'
+import {Route} from 'react-router-dom'
 import { salonIdfetch } from '../../../contexts/fetch_data'
 import Slide from './slide'
 import { Avatar, Row, Col, Card } from 'antd'
 import Img from '../../../components/image'
 import Isciler from './isciler'
+import NotFound from '../../not_found'
 
 export default function SalonInfo(props){
     const {id} = props.match.params
     const [data,setdata] = useState('')
+    const [check,setcheck] = useState(true)
     useEffect(()=>{
-        salonIdfetch(id)
-        .then(res=>{
-            setdata(res.data)
-        })
+        if(id > 0){
+            salonIdfetch(id)
+            .then(res=>{
+                if(!res.data.id){
+                    setcheck(false)
+                }
+                setdata(res.data)
+            })
+        }else{
+            setcheck(false)
+        }
     },[id])
-    return(data &&
+    return(check ? data &&
         <div className="salon-info"> 
             <Img src={data.sekil} className="salon-info-sekil" />
             <div className="salon-info-ust">
@@ -39,5 +49,6 @@ export default function SalonInfo(props){
                 <Isciler isciler={data.isciler} />
             }
         </div>
+        : <Route component={NotFound} />
     )
 }

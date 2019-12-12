@@ -3,7 +3,6 @@ import Img from '../../../components/image'
 import { Row, Col } from 'antd'
 
 export default function ProfileUser({ data }) {
-    console.log(data)
     return (
         <div className="rezerv-profil">
             <Row>
