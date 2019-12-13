@@ -11,7 +11,7 @@ export default function Isciler({ isciler }) {
                 {isciler.map((d, i) => {
                     return (
                         <Col key={i} span={6} style={{marginBottom:'10px'}}>
-                            <Link to={`/user/${d.id}`}>
+                            <Link to={`/user/profile/${d.id}`}>
                                 <Card
                                     hoverable
                                     cover={<Img alt="sekil" src={d.sekil} className="isci-cart-image" />}

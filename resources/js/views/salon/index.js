@@ -37,7 +37,7 @@ export default function Salon() {
             <div className="salonlar">
                 {data && data.map(d => {
                     return (
-                        <Link key={d.id} to={`salon/${d.id}`}>
+                        <Link key={d.id} to={`salon/profile/${d.id}`}>
                             <Card
                                 hoverable
                                 cover={<Img className="salonlar-image" alt={d.ad} src={d.sekil} />}

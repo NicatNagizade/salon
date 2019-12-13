@@ -7,8 +7,8 @@ import SalonInfo from '../views/salon/info'
 export default function SalonRoutes(){
     return(
         <Switch>
+            <Route exact path="/salon/profile/:id" component={SalonInfo} />
             <Route exact path="/salon" component={Salon} />
-            <Route exact path="/salon/:id" component={SalonInfo} />
             <Route component={NotFound} />
         </Switch>
     )

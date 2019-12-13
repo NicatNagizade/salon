@@ -11,7 +11,7 @@ export default function Lists({data,path}) {
                 <List.Item>
                     <List.Item.Meta
                         avatar={<Avatar src={item.sekil} />}
-                        title={<Link to={`${path}/${item.id}`}>{item.ad}{item.soyad && ' '+item.soyad}</Link>}
+                        title={<Link to={`/${path}/profile/${item.id}`}>{item.ad}{item.soyad && ' '+item.soyad}</Link>}
                     />
                 </List.Item>
             )}

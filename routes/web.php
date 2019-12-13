@@ -34,7 +34,6 @@ Route::prefix('admin')->namespace('Auth\Admin')->group(function(){
     // Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm');
 });
 
-// Route::view('{index?}','index');
 Route::fallback(function () {
     return view('index');
 });

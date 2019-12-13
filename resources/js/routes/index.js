@@ -14,6 +14,7 @@ export default function IndexRoutes(){
     return(
         <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
             <Route path="/salon" component={SalonRoutes} />
             <Route path="/user" component={UserRoutes} />
             <Route path="/client" component={ClientRoutes} />

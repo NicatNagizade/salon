@@ -50,8 +50,13 @@ export default function Register(){
     const radioChange = (e)=>{
         setpath(e.target.value);
     }
+    const onEnter = e =>{
+        if(!loading && e.keyCode == 13){
+            handleClick()
+        }
+    }
     return(
-        <Form className="login-form">
+        <Form className="login-form" onKeyUp={onEnter}>
             <Form.Item {...name_status}>
                 <Input prefix={<Icon type="user" />} placeholder="Name" ref={ref_name} />
             </Form.Item>

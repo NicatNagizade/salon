@@ -25,7 +25,7 @@ export default function Login(){
         setloading(true)
         const email = ref_email.current.input.value
         const password = ref_password.current.input.value
-        const remember = ref_remember.current.rcCheckbox.state.checked
+        const remember = ref_remember.current.rcCheckbox.state.checked ? true : null;
         Axios.post(path+'/login',{email,password,remember})
         .then(res=>{
             setloading(false)
@@ -44,19 +44,24 @@ export default function Login(){
     const radioChange = (e)=>{
         setpath(e.target.value);
     }
+    const onEnter = e =>{
+        if(!loading && e.keyCode == 13){
+            handleClick()
+        }
+    }
     return(
-        <Form className="login-form">
+        <Form className="login-form" onKeyUp={onEnter}>
             <Form.Item {...email_status}>
                 <Input prefix={<Icon type="mail" />} placeholder="Email" ref={ref_email}/>
             </Form.Item>
             <Form.Item {...password_status}>
                 <Input.Password prefix={<Icon type="lock" />} placeholder="Password" ref={ref_password} />
-                <Radio.Group onChange={radioChange} value={path}>
+            </Form.Item>
+            <Form.Item>
+            <Radio.Group onChange={radioChange} value={path}>
                     <Radio value="/client">İstifadəçi</Radio>
                     <Radio value="">İşçi</Radio>
-                </Radio.Group><br/>
-            {/* </Form.Item>
-            <Form.Item> */}
+            </Radio.Group><br />
                 <Checkbox ref={ref_remember}>{t.xatirla}</Checkbox>
                 <Link style={{float:'right'}} to="/forgot">
                     Forgot password
