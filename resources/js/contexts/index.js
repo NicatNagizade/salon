@@ -16,12 +16,14 @@ export default function IndexProvider({ children }) {
     const [lang, setlang] = useState(dil)
     const [auth, setauth] = useState('')
     const [loading, setloading] = useState(true)
+    const [loadAuth,setLoadAuth] = useState(false)
     const data = { lang,setlang, t, setauth, auth,setloading }
     const render_memo = [t,auth]
     useEffect(() => {
         authfetch()
             .then(res => {
                 setauth(res.data)
+                setLoadAuth(true)
             })
     }, [])
     useEffect(() => {
@@ -38,7 +40,7 @@ export default function IndexProvider({ children }) {
         <div>
             {loading && <Loading style={{position:'fixed',zIndex:'999',top:'-10px'}} start={22} />}
             {useMemo(() => {
-                return (
+                return (loadAuth && 
                     <Provider value={data}>
                         {children}
                     </Provider>)

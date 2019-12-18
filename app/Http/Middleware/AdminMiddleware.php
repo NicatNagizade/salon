@@ -13,9 +13,12 @@ class AdminMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $roless = 'master')
+    public function handle($request, Closure $next, $roless = 'all')
     {
         if(auth('admin')->check()){
+            if($roless == "all"){
+                return $next($request);
+            }
             $admin_role = auth('admin')->user()->role;
             if($admin_role == 'master'){
                 return $next($request);
@@ -26,6 +29,7 @@ class AdminMiddleware
                     return $next($request);
                 }
             }
+            return route('errors',['admin:'.$roless]);
         }
         return route('errors',['admin']);
     }

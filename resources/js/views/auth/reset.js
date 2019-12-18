@@ -26,8 +26,9 @@ export default function ResetPassword(props) {
         const password = ref_password.current.input.value
         const password_confirmation = ref_password_confirmation.current.input.value
         const email = ref_email.current.input.value
+        const guard = props.match.params.guard ? "/"+props.match.params.guard : ""
         setloading(true)
-        resetfetch(email,password,password_confirmation,props.match.params.token)
+        resetfetch(email,password,password_confirmation,props.match.params.token,guard)
         .then(res=>{
             setauth(res.data)
             setloading(false)

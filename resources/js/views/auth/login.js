@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import {Link,useHistory} from 'react-router-dom'
 import { Input, Form, Button, Icon,Checkbox, Radio } from 'antd'
-import Axios from 'axios'
 import { context } from '../../contexts'
+import { loginfetch } from '../../contexts/fetch_data'
 
 export default function Login(){
     const history = useHistory()
@@ -10,8 +10,8 @@ export default function Login(){
     const ref_email = useRef()
     const ref_password = useRef()
     const ref_remember = useRef()
+    const ref_guard = useRef()
     const [loading,setloading] = useState(false)
-    const [path,setpath] = useState('/client');
     const [errors, seterrors] = useState({email:'',password:''})
     const email_status = errors.email && {
         validateStatus : 'error',
@@ -26,7 +26,8 @@ export default function Login(){
         const email = ref_email.current.input.value
         const password = ref_password.current.input.value
         const remember = ref_remember.current.rcCheckbox.state.checked ? true : null;
-        Axios.post(path+'/login',{email,password,remember})
+        const guard = ref_guard.current.state.value
+        loginfetch(email,password,remember,guard)
         .then(res=>{
             setloading(false)
             if(res.data.error){
@@ -40,9 +41,6 @@ export default function Login(){
             setloading(false)
             seterrors(res.response.data.errors)
         })
-    }
-    const radioChange = (e)=>{
-        setpath(e.target.value);
     }
     const onEnter = e =>{
         if(!loading && e.keyCode == 13){
@@ -58,7 +56,7 @@ export default function Login(){
                 <Input.Password prefix={<Icon type="lock" />} placeholder="Password" ref={ref_password} />
             </Form.Item>
             <Form.Item>
-            <Radio.Group onChange={radioChange} value={path}>
+            <Radio.Group ref={ref_guard} defaultValue="/client">
                     <Radio value="/client">İstifadəçi</Radio>
                     <Radio value="">İşçi</Radio>
             </Radio.Group><br />

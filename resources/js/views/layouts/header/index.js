@@ -1,6 +1,5 @@
 import React from 'react'
 import { Menu, Row, Col } from 'antd';
-import MySearch from '../../../components/search';
 import HeaderLang from './language';
 import Logout from './logout';
 import { context } from '../../../contexts';

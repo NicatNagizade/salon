@@ -1,13 +1,12 @@
 import React, { useRef, useState } from 'react'
 import {useHistory} from 'react-router-dom'
 import { Form, Input, Button, Icon, Radio } from 'antd'
-import Axios from 'axios'
 import { context } from '../../contexts'
 
 export default function Register(){
     const history = useHistory()
     const {setauth} = context()
-    const [path,setpath] = useState('/client')
+    const ref_guard = useRef()
     const [loading,setloading] = useState(false)
     const [errors,seterrors] = useState({name:'',email:'',password:''})
     const ref_name = useRef()
@@ -32,7 +31,8 @@ export default function Register(){
         const email = ref_email.current.input.value
         const password = ref_password.current.input.value
         const password_confirmation = ref_password_confirmation.current.input.value
-        Axios.post(path+'/register',{name,email,password,password_confirmation})
+        const guard = ref_guard.current.state.value
+        registerfetch(name,email,password,password_confirmation,guard)
         .then(res=>{
             setloading(false)
             if(res.data.error){
@@ -46,9 +46,6 @@ export default function Register(){
             setloading(false)
             seterrors(res.response.data.errors)
         })
-    }
-    const radioChange = (e)=>{
-        setpath(e.target.value);
     }
     const onEnter = e =>{
         if(!loading && e.keyCode == 13){
@@ -68,7 +65,7 @@ export default function Register(){
             </Form.Item>
             <Form.Item>
                 <Input.Password prefix={<Icon type="lock" />} placeholder="Password Confirmation" ref={ref_password_confirmation} />
-            <Radio.Group onChange={radioChange} value={path}>
+            <Radio.Group ref={ref_guard} defaultValue="/client">
                     <Radio value="/client">İstifadəçi</Radio>
                     <Radio value="">İşçi</Radio>
             </Radio.Group>

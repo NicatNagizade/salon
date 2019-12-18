@@ -66,7 +66,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $this->middleware('admin:master');
         return Admin::create([
             'name' => $data['name'],
             'email' => $data['email'],
