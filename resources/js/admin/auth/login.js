@@ -34,7 +34,7 @@ export default function AdminLogin(){
                 return
             }
             setauth(res.data)
-            history.push('/')
+            history.push('/admin')
         })
         .catch(res=>{
             setloading(false)

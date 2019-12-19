@@ -12,7 +12,7 @@ export default function Admin(){
     },[auth])
     return(
         <div>
-            Admin
+            Dashboard
         </div>
     )
 }

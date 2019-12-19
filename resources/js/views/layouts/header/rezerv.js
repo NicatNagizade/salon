@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 export default function RezervLink(){
     return(
         <Link to="/client/rezerv">
-            <Button>Button</Button>
+            <Button>Rezerv</Button>
         </Link>
     )
 }

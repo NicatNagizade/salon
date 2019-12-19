@@ -22,17 +22,18 @@ Route::namespace('Auth')->group(function(){
     Route::post('password/reset', 'ResetPasswordController@reset');
 });
 
-Route::prefix('admin')->group(function(){
-    Route::namespace('Auth\Admin')->group(function(){
-        Route::post('login', 'LoginController@login');
-        Route::post('logout', 'LoginController@logout');
-        Route::post('register', 'RegisterController@register')->middleware('admin:master');
-        Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
-        Route::post('password/reset', 'ResetPasswordController@reset');
-    });
-    Route::namespace('Admin')->group(function(){
-        Route::post('','IndexController@index');
-    });
+Route::prefix('admin')->namespace('Auth\Admin')->group(function(){
+    Route::post('login', 'LoginController@login');
+    Route::post('logout', 'LoginController@logout');
+    Route::post('register', 'RegisterController@register')->middleware('admin:master');
+    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail');
+    Route::post('password/reset', 'ResetPasswordController@reset');
+});
+
+Route::prefix('admin')->namespace('Admin')->group(function(){
+    Route::post('users','IndexController@users');
+    Route::post('user/delete/{id}','IndexController@delete');
+    Route::post('axtaris','IndexController@axtaris');
 });
 
 Route::fallback(function () {

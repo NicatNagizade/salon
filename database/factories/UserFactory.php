@@ -28,6 +28,9 @@ $factory->define(User::class, function (Faker $faker) {
         'telefon'=>$faker->phoneNumber,
         'sekil' => $faker->imageUrl(),
         'qeyd' => $faker->realText(300),
-        'salon_id' => $faker->numberBetween(1,20)
+        'salon_id' => $faker->numberBetween(1,20),
+        'baslama' => $faker->time(),
+        'bitme' => $faker->time(),
+        'istirahet' => $faker->numberBetween(1,7)
     ];
 });
