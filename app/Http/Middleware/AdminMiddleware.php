@@ -29,8 +29,8 @@ class AdminMiddleware
                     return $next($request);
                 }
             }
-            return route('errors',['admin:'.$roless]);
+            return redirect('errors/home/admin_role='.$admin_role);
         }
-        return route('errors',['admin']);
+        return redirect('errors/home/admin');
     }
 }

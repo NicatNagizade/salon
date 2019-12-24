@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin;
 use App\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Kataloq;
@@ -19,8 +20,22 @@ class IndexController extends Controller
         $data = User::paginate(100);
         return $data;
     }
-    public function delete(int $id){
+    public function salons(){
+        $data = Salon::paginate(100);
+        return $data;
+    }
+    public function clients(){
+        $data = Client::paginate(100);
+        return $data;
+    }
+    public function deleteUser(int $id){
         User::destroy($id);
+    }
+    public function deleteSalon(int $id){
+        Salon::destroy($id);
+    }
+    public function deleteClient(int $id){
+        Client::destroy($id);
     }
     public function axtaris(){
         $select = request('select');

@@ -21,7 +21,7 @@ export default function AdminSolMenu() {
             <Menu.Item key="1"><Link to="/admin/user"><Icon type="user" /> Users</Link></Menu.Item>
             <Menu.Item key="2"><Link to="/admin/client"><Icon type="user" /> Istifadeciler</Link></Menu.Item>
             <Menu.Item key="3"><Link to="/admin/salon"><Icon type="home" /> Salonlar</Link></Menu.Item>
-            <Menu.Item key="7"><Link to="/admin/admin"><Icon type="user" /> Adminler</Link></Menu.Item>
+            <Menu.Item key="7"><Link to="/admin/admin"><Icon type="user" /> Master</Link></Menu.Item>
             <Menu.Item key="4"><Link to="/admin/blog"><Icon type="read" /> Blog</Link></Menu.Item>
             <Menu.Item key="5"><Link to="/admin/vip"><Icon type="bell" /> VIP</Link></Menu.Item>
             <Menu.Item key="6"><Link to="/admin/rezerv"><Icon type="highlight" /> Rezerv</Link></Menu.Item>

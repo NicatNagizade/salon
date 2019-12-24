@@ -37,6 +37,11 @@ export default function AdminUsers() {
             key: 'soyad',
         },
         {
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
+        },
+        {
             title: 'Salon id',
             dataIndex: 'salon_id',
             key: 'salon_id',
@@ -82,8 +87,8 @@ export default function AdminUsers() {
             key: 'istirehet',
         },
         {
-            title: 'Edit',
-            key: 'edit',
+            title: 'Delete',
+            key: 'delete',
             render: (text) => {
                 return (
                     <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(text.id)}>

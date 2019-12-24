@@ -60,7 +60,6 @@ export default function AdminLogin(){
                     Forgot password
                 </Link>
                 <Button loading={loading} type="primary" style={{width:'100%'}} onClick={handleClick}>Login</Button>
-                Or <Link to="/register">register now!</Link>
             </Form.Item>
         </Form>
     )

@@ -33,7 +33,7 @@ export default function Header() {
         <header>
             <Row type="flex" justify="space-between" style={{ width: '95%', margin: '0 auto' }} align="middle">
                 <Col>
-                    LOGO
+                    <Link to="/">LOGO</Link>
                 </Col>
                 <Col>
                     <Menu mode="horizontal">

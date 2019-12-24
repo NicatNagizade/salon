@@ -10,6 +10,11 @@ import { context } from '../contexts'
 import AdminUsers from '../admin/views/user'
 import AdminAxtaris from '../admin/views/axtaris'
 import AdminDatabase from '../admin/views/database'
+import AdminSalon from '../admin/views/salon'
+import AdminClients from '../admin/views/client'
+import AdminsShow from '../admin/views/admins'
+import AdminShow from '../admin/views/admins/profile'
+import AdminRegister from '../admin/auth/register'
 
 export default function AdminRoutes() {
     const {auth} = context()
@@ -45,8 +50,13 @@ function Routes({check}) {
         <Switch>
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/admin/login" component={AdminLogin} />
+            <Route exact path="/admin/register" component={AdminRegister} />
             <Route exact path="/admin/profile" component={AdminProfile} />
             <Route exact path="/admin/user" component={AdminUsers} />
+            <Route exact path="/admin/salon" component={AdminSalon} />
+            <Route exact path="/admin/client" component={AdminClients} />
+            <Route exact path="/admin/admin/:id" component={AdminShow} />
+            <Route exact path="/admin/admin" component={AdminsShow} />
             <Route exact path="/admin/axtaris" component={AdminAxtaris} />
             <Route exact path="/admin/database" component={AdminDatabase} />
             <Route component={NotFound} />
